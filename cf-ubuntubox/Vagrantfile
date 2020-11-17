@@ -1,0 +1,17 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "cf-ubuntu" do |cfg|
+    cfg.vm.box = "jinfluenza/ubuntu-20.04"
+    cfg.vm.hostname = "cf-ubuntu"
+    cfg.vm.provision :shell, path: "bootstrap.sh"
+    
+    cfg.vm.provider "virtualbox" do |vb, override|
+      vb.name = "cf-ubuntu"
+      vb.customize ["modifyvm", :id, "--memory", 4096]
+      vb.customize ["modifyvm", :id, "--cpus", 2]
+      vb.customize ["modifyvm", :id, "--vram", "32"]
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+    
+    end
+  end
+end

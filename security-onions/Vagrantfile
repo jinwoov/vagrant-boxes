@@ -1,6 +1,0 @@
-# SHA256: B87F6FD9677127D89E36F8D4EA19A1AC4FB924223BC69C0B698FB5F04F7B7CF7
-
-Vagrant.configure("2") do |config|
-  config.vm.box = "jinfluenza/security-onions"
-  config.vm.box_version = "1.0"
-end
